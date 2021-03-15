@@ -8,11 +8,6 @@
     justify-content: center;
     align-items: center;
 
-    .cardContainer:hover .visibleToolTip{
-        display: block;
-    }
-
-
     .cardContainer {
         background: white;
         border: 1px solid #9191914f;
@@ -22,14 +17,17 @@
         box-shadow: 5px 3px 5px #50505018;
         overflow: hidden;
         position: relative;
+        &:hover .visibleToolTip {
+            display: block;
+        }
 
-         .progressBarContainer {
+        .progressBarContainer {
             height: 15px;
             width: 100%;
             background-color: #b4f1e4;
-          }
+        }
 
-          .visibleToolTip {
+        .visibleToolTip {
             width: 400px;
             height: 25px;
             color: #478fca;
@@ -40,7 +38,7 @@
             z-index: 5;
             margin-top: -50px;
             display: none;
-    
+
             &::after {
                 content: "";
                 position: absolute;
@@ -50,7 +48,7 @@
                 border-style: solid;
                 border-color: #d5e4f8 transparent transparent transparent;
             }
-    
+
             .remainingTotal {
                 font-weight: bold;
             }
@@ -59,77 +57,80 @@
                 font-size: 0.7em;
                 vertical-align: text-top;
             }
+            .toolTipText{
+                padding:3px;
+            }
         }
 
-    .contentContainer {
-        padding: 30px;
+        .contentContainer {
+            padding: 30px;
 
-        .inputContainer {
-            display: flex;
-            height: 40px;
-            border: 2px solid #91919127;
-            border-radius: 5px;
+            .inputContainer {
+                display: flex;
+                height: 40px;
+                border: 2px solid #91919127;
+                border-radius: 5px;
 
-            input {
-                border: none;
-                flex: 2;
-                &[type="number"] {
-                    font-size: 18px;
+                input {
+                    border: none;
+                    flex: 2;
+                    &[type="number"] {
+                        font-size: 18px;
+                        font-family: "Poppins";
+                    }
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                input,
+                textarea {
+                    width: 100%;
+                    display: block;
+                }
+
+                button {
+                    border: 1px solid #1acca4;
+                    background: #1acca4;
+                    color: white;
+                    font-size: 15px;
                     font-family: "Poppins";
-                }
-                &:focus {
+                    border: none;
+                    flex: 1;
                     outline: none;
+                    &:hover {
+                        background: #149e80;
+                    }
+                    &:disabled {
+                        background: rgba(128, 128, 128, 0.438);
+                    }
+                }
+                .currencyLabel {
+                    left: 15px;
+                    color: #50505091;
+                    padding-top: 10px;
+                    padding-left: 5px;
                 }
             }
-            input,
-            textarea {
-                width: 100%;
-                display: block;
-            }
-
-            button {
-                border: 1px solid #1acca4;
-                background: #1acca4;
-                color: white;
-                font-size: 15px;
+            .fundingDateHeader {
+                font-size: 1.5rem;
                 font-family: "Poppins";
-                border: none;
-                flex: 1;
-                outline: none;
-                &:hover {
-                    background: #149e80;
-                }
-                &:disabled {
-                    background: rgba(128, 128, 128, 0.438);
-                }
+                padding-bottom: 20px;
             }
-            .currencyLabel {
-                left: 15px;
-                color: #50505091;
-                padding-top: 10px;
-                padding-left: 5px;
+            .fundingDateSubHeader {
+                font-size: 1rem;
+                font-family: "IBM Plex Sans";
+                color: rgb(88, 88, 88);
+                padding-bottom: 30px;
             }
-        }
-        .fundingDateHeader {
-            font-size: 1.5rem;
-            font-family: "Poppins";
-            padding-bottom: 20px;
-        }
-        .fundingDateSubHeader {
-            font-size: 1rem;
-            font-family: "IBM Plex Sans";
-            color: rgb(88, 88, 88);
-            padding-bottom: 30px;
-        }
-        .invalidText {
-            color: red;
-            font-size: 12px;
-            margin-left: 5px;
-        }
-        .donorNumber {
-            font-weight: 700;
-            color: #000000;
+            .invalidText {
+                color: red;
+                font-size: 12px;
+                margin-left: 5px;
+            }
+            .donorNumber {
+                font-weight: 700;
+                color: #000000;
+            }
         }
     }
-}
 }
