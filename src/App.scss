@@ -8,37 +8,10 @@
     justify-content: center;
     align-items: center;
 
-    .visibleToolTip {
-        width: 400px;
-        height: 25px;
-        color: #478fca;
-        background-color: #d5e4f8;
-        border-radius: 4px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 5;
-        bottom: 530px;
-        padding-left: 10px;
-
-        .remainingTotal {
-            font-weight: bold;
-        }
-        .currency {
-            font-weight: bold;
-            font-size: 0.7em;
-            vertical-align: text-top;
-        }
+    .cardContainer:hover .visibleToolTip{
+        display: block;
     }
 
-    .visibleToolTip::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 80%;
-        border-width: 10px;
-        border-style: solid;
-        border-color: #d5e4f8 transparent transparent transparent;
-    }
 
     .cardContainer {
         background: white;
@@ -48,7 +21,45 @@
         width: 400px;
         box-shadow: 5px 3px 5px #50505018;
         overflow: hidden;
-    }
+        position: relative;
+
+         .progressBarContainer {
+            height: 15px;
+            width: 100%;
+            background-color: #b4f1e4;
+          }
+
+          .visibleToolTip {
+            width: 400px;
+            height: 25px;
+            color: #478fca;
+            background-color: #d5e4f8;
+            border-radius: 4px;
+            padding: 5px 0;
+            position: fixed;
+            z-index: 5;
+            margin-top: -50px;
+            display: none;
+    
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 80%;
+                border-width: 10px;
+                border-style: solid;
+                border-color: #d5e4f8 transparent transparent transparent;
+            }
+    
+            .remainingTotal {
+                font-weight: bold;
+            }
+            .currency {
+                font-weight: bold;
+                font-size: 0.7em;
+                vertical-align: text-top;
+            }
+        }
 
     .contentContainer {
         padding: 30px;
@@ -58,44 +69,47 @@
             height: 40px;
             border: 2px solid #91919127;
             border-radius: 5px;
-            overflow: hidden;
-       
-        input {
-            border: none;
-            flex: 2;
-        }
-        input:focus {
-            outline: none;
-        }
 
-        input[type="number"] {
-            font-size: 18px;
-            font-family: "Poppins";
-        }
-        button {
-            border: 1px solid #1acca4;
-            background: #1acca4;
-            color: white;
-            font-size: 15px;
-            font-family: "Poppins";
-            border: none;
-            flex: 1;
-            outline: none;
-        }
-        button:hover{
-          background: #149e80;
-        }
-        button:disabled{
-          background: rgba(128, 128, 128, 0.438);
+            input {
+                border: none;
+                flex: 2;
+                &[type="number"] {
+                    font-size: 18px;
+                    font-family: "Poppins";
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            input,
+            textarea {
+                width: 100%;
+                display: block;
+            }
 
+            button {
+                border: 1px solid #1acca4;
+                background: #1acca4;
+                color: white;
+                font-size: 15px;
+                font-family: "Poppins";
+                border: none;
+                flex: 1;
+                outline: none;
+                &:hover {
+                    background: #149e80;
+                }
+                &:disabled {
+                    background: rgba(128, 128, 128, 0.438);
+                }
+            }
+            .currencyLabel {
+                left: 15px;
+                color: #50505091;
+                padding-top: 10px;
+                padding-left: 5px;
+            }
         }
-        .currencyLabel {
-          left: 15px;
-          color: #50505091;
-          padding-top: 10px;
-          padding-left: 5px;
-      }
-      }
         .fundingDateHeader {
             font-size: 1.5rem;
             font-family: "Poppins";
@@ -107,14 +121,15 @@
             color: rgb(88, 88, 88);
             padding-bottom: 30px;
         }
-        .invalidText{
-          color: red;
-          font-size: 12px;
-          margin-left: 5px;
+        .invalidText {
+            color: red;
+            font-size: 12px;
+            margin-left: 5px;
         }
         .donorNumber {
             font-weight: 700;
             color: #000000;
         }
     }
+}
 }
